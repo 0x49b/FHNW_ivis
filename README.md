@@ -1,8 +1,8 @@
 # Cyberkriminalität*
 **Subtitle (if any)**
 
-Student 1: Florian Thiévent*
-Student 2: Joyce Hänggi*
+Student 1: Florian Thiévent
+Student 2: Joyce Hänggi
 
 **Short description:**
 Im Jahr 2020 wurden knapp 24’400 Strafteten im Bereich der Cyberkriminalität in der Schweiz registriert.
