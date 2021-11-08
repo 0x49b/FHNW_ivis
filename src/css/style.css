@@ -12,7 +12,7 @@
     --white: #eeeeee;
     --black: #010101;
     --grey: #8a8a8a;
-    --teal: #5D8886;
+    --teal: #5d8886;
 }
 
 * {
@@ -96,7 +96,7 @@ h3 {
 
 .text-div {
     background-color: var(--white);
-    text-align: left;
+    text-align: justify;
     width: 1000px;
     margin: 20px auto;
     border-radius: 8px;
@@ -153,13 +153,12 @@ p {
 input[type=email] {
     width: 100%;
     height: 75px;
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
     border-radius: 40px;
     border: 3px solid var(--teal);
-
+    font-family: 'Montserrat-Regular', sans-serif;
 }
-
 
 footer {
     text-align: center;
@@ -167,7 +166,6 @@ footer {
     background-color: var(--teal);
 
 }
-
 
 .quelle {
     text-align: center;
@@ -177,7 +175,7 @@ footer {
     text-decoration: none;
 }
 
-.boxen{
+.boxen {
     display: flex;
     text-align: center;
     padding-top: 20px;
@@ -185,28 +183,27 @@ footer {
 }
 
 
-.boxen-intro{
+.boxen-intro {
     display: flex;
     text-align: center;
     padding-top: 20px;
     margin-left: 30px;
 }
 
-.box1, .box2, .box3, .box4 , .box5{
+.box1, .box2, .box3, .box4, .box5 {
     width: 20%;
     margin-right: 2%;
     padding: 20px;
     box-sizing: border-box;
-    background: #5D8886;
+    background: var(--teal);
     border-radius: 10px;
 
 }
 
 
-
-.box-title{
+.box-title {
     display: block;
-    color: #ffff;
+    color: var(--white);
 }
 
 .box1-picture {
@@ -222,8 +219,9 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .box3-picture {
-   height: 7rem;
+    height: 7rem;
     background-image: url("../img/password.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -242,6 +240,7 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .box6-picture {
     height: 7rem;
     background-image: url("../img/identitätsdiebstahl.png");
@@ -264,12 +263,13 @@ footer {
     background-position: center;
 }
 
-.laender-vergleich{
+.laender-vergleich {
     height: 80rem;
     background-image: url("../img/laendervergleich.png");
     background-repeat: no-repeat;
     background-position: center;
 }
-.ergaenzung{
+
+.ergaenzung {
     font-style: italic;
 }
