@@ -188,10 +188,15 @@ h3 {
     width: 20%;
     margin-right: 2%;
     padding: 20px;
-    background: #eee;
+
     box-sizing: border-box;
-    background: #C4C4C4;
+    background: #5D8886;
     border-radius: 10px;
+}
+
+
+.box-title{
+    color: #ffff;
 }
 
 .box1-picture {
