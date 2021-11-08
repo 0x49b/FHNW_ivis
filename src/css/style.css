@@ -96,7 +96,7 @@ h3 {
 
 .text-div {
     background-color: var(--white);
-    text-align: left;
+    text-align: center;
     width: 1000px;
     margin: 20px auto;
     border-radius: 8px;
