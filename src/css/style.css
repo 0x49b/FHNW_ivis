@@ -21,21 +21,23 @@
     box-sizing: border-box;
 }
 
-html, body {
+body {
     font-family: 'Montserrat-Regular', sans-serif;
     margin: auto;
     max-width: 1280px;
-    height: 100%;
+}
+
+html {
     font-size: 100%;
 }
 
 .header {
     height: 40rem;
     background-image: url("../img/cybercrime_titelbild.jpeg");
-    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center;
 }
+
 .title {
     color: var(--white);
     position: absolute;
@@ -175,21 +177,36 @@ footer {
     text-decoration: none;
 }
 
-.boxen {
+.boxen{
     display: flex;
     text-align: center;
     padding-top: 20px;
     margin-left: 100px;
 }
 
-.box1, .box2, .box3, .box4 {
+
+.boxen-intro{
+    display: flex;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 30px;
+}
+
+.box1, .box2, .box3, .box4 , .box5{
     width: 20%;
     margin-right: 2%;
     padding: 20px;
-    background: #eee;
     box-sizing: border-box;
-    background: #C4C4C4;
+    background: #5D8886;
     border-radius: 10px;
+
+}
+
+
+
+.box-title{
+    display: block;
+    color: #ffff;
 }
 
 .box1-picture {
@@ -205,9 +222,8 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
 }
-
 .box3-picture {
-    height: 7rem;
+   height: 7rem;
     background-image: url("../img/password.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -218,4 +234,42 @@ footer {
     background-image: url("../img/spam.png");
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.box5-picture {
+    height: 7rem;
+    background-image: url("../img/malware.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.box6-picture {
+    height: 7rem;
+    background-image: url("../img/identitätsdiebstahl.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.box8-picture {
+    height: 7rem;
+    background-image: url("../img/network.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box9-picture {
+    height: 7rem;
+    background-image: url("../img/social-engineering.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.laender-vergleich{
+    height: 80rem;
+    background-image: url("../img/laendervergleich.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.ergaenzung{
+    font-style: italic;
 }
