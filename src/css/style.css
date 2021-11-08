@@ -21,23 +21,21 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: 'Montserrat-Regular', sans-serif;
     margin: auto;
     max-width: 1280px;
-}
-
-html {
+    height: 100%;
     font-size: 100%;
 }
 
 .header {
     height: 40rem;
     background-image: url("../img/cybercrime_titelbild.jpeg");
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
 .title {
     color: var(--white);
     position: absolute;
@@ -177,7 +175,7 @@ footer {
     text-decoration: none;
 }
 
-.boxen{
+.boxen {
     display: flex;
     text-align: center;
     padding-top: 20px;
@@ -207,8 +205,9 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .box3-picture {
-   height: 7rem;
+    height: 7rem;
     background-image: url("../img/password.png");
     background-repeat: no-repeat;
     background-position: center;
