@@ -263,3 +263,13 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.laender-vergleich{
+    height: 80rem;
+    background-image: url("../img/laendervergleich.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.ergaenzung{
+    font-style: italic;
+}
