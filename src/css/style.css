@@ -184,18 +184,28 @@ footer {
     margin-left: 100px;
 }
 
-.box1, .box2, .box3, .box4 {
+
+.boxen-intro{
+    display: flex;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 30px;
+}
+
+.box1, .box2, .box3, .box4 , .box5{
     width: 20%;
     margin-right: 2%;
     padding: 20px;
-
     box-sizing: border-box;
     background: #5D8886;
     border-radius: 10px;
+
 }
 
 
+
 .box-title{
+    display: block;
     color: #ffff;
 }
 
