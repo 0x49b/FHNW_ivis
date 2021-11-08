@@ -12,12 +12,12 @@ function charting(data) {
 
     const rect = document.getElementById("rectangle");
     let chart = BubbleChart(data, {
-        label: d => d.title,//[...d.id.split(".").pop().split(/(?=[A-Z][a-z])/g), d.value.toLocaleString("en")].join("\n"),
+        label: d => d.title + "\n\n" + d.cases,//[...d.id.split(".").pop().split(/(?=[A-Z][a-z])/g), d.value.toLocaleString("en")].join("\n"),
         value: d => d.cases,
         group: d => d.group,
         title: d => d.title,
-        link: d => "bla",//`https://github.com/prefuse/Flare/blob/master/flare/src/${d.id.replace(/\./g, "/")}.as`,
-        width: 1152
+        link: d => d.url,//`https://github.com/prefuse/Flare/blob/master/flare/src/${d.id.replace(/\./g, "/")}.as`,
+        fillOpacity: 1.0
     });
     rect.append(chart);
 }
