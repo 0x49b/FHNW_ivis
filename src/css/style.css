@@ -176,3 +176,47 @@ h3 {
     color: white;
     text-decoration: none;
 }
+
+.boxen{
+    display: flex;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 100px;
+}
+
+.box1, .box2, .box3, .box4 {
+    width: 20%;
+    margin-right: 2%;
+    padding: 20px;
+    background: #eee;
+    box-sizing: border-box;
+    background: #C4C4C4;
+    border-radius: 10px;
+}
+
+.box1-picture {
+    height: 7rem;
+    background-image: url("../img/update.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box2-picture {
+    height: 7rem;
+    background-image: url("../img/antivirus.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.box3-picture {
+   height: 7rem;
+    background-image: url("../img/password.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box4-picture {
+    height: 7rem;
+    background-image: url("../img/spam.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
