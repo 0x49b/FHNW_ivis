@@ -235,3 +235,31 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.box5-picture {
+    height: 7rem;
+    background-image: url("../img/malware.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.box6-picture {
+    height: 7rem;
+    background-image: url("../img/identitätsdiebstahl.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.box8-picture {
+    height: 7rem;
+    background-image: url("../img/network.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box9-picture {
+    height: 7rem;
+    background-image: url("../img/social-engineering.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
