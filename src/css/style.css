@@ -98,8 +98,8 @@ p{
 }
 
 .infographic{
-  height: 60rem;
-  background-image: url("../img/Infografik.png");
+  height: 50rem;
+  background-image: url("../img/infografik.png");
   background-repeat: no-repeat;
   background-position: center;
 
@@ -163,4 +163,5 @@ h3 {
   text-transform: lowercase;
   color: white;
   text-decoration: none;
+
 }
