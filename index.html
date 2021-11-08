@@ -5,6 +5,8 @@
     <meta name="generator" content="GitLab Pages">
     <title>Cyberkriminalität - ivis pro</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
+    <script src="./src/script/bubble-charts.js"></script>
 </head>
 <body>
 <div class="header">
@@ -30,69 +32,72 @@
 
     <p> Zu den am weitesten verbreiteten Methoden von Cyber-Kriminalität gehören unter anderem:</p>
     <ul class="text-list">
-        <li  class="text-list-item">Schadprogramme (und alle Unterarten) sowie Emotet</li>
-        <li  class="text-list-item">Identitätsdiebstahl durch Doxing</li>
-        <li  class="text-list-item">Spam und Phishing</li>
-        <li  class="text-list-item">Botnetze</li>
-        <li  class="text-list-item">Social Engineering</li>
+        <li class="text-list-item">Schadprogramme (und alle Unterarten) sowie Emotet</li>
+        <li class="text-list-item">Identitätsdiebstahl durch Doxing</li>
+        <li class="text-list-item">Spam und Phishing</li>
+        <li class="text-list-item">Botnetze</li>
+        <li class="text-list-item">Social Engineering</li>
     </ul>
 
-  <div class="fakten-title">Cyberkriminalität wird oft unterschätzt! </div>
+    <div class="fakten-title">Cyberkriminalität wird oft unterschätzt!</div>
 
-  <p>Einzelpersonen wie auch Unternehmen werden oft Opfer von Cyberkriminalität.
-    Der Schwachpunkt liegt oftmals im Menschen durch seine Unwissenheit, Nachlässigkeit oder Neugier.
-   Aus diesem Grund ist neben der notwendigen IT-Sicherheit auch eine Sensibilisierung und Schulung des Menschen notwendig.</p>
+    <p>Einzelpersonen wie auch Unternehmen werden oft Opfer von Cyberkriminalität.
+        Der Schwachpunkt liegt oftmals im Menschen durch seine Unwissenheit, Nachlässigkeit oder Neugier.
+        Aus diesem Grund ist neben der notwendigen IT-Sicherheit auch eine Sensibilisierung und Schulung des Menschen
+        notwendig.</p>
 
-  <p>Durch die Faktenübersicht erhalten Sie noch mehr Informationen:</p>
-  <div class="infographic">
-</div>
-  <div class="diagramm1">
-  <p>Werfen wir einen Blick auf die häufigsten Cyber-Angriffe in der Schweiz</p>
-  <div id="rectangle"></div>
-  </div>
+    <p>Durch die Faktenübersicht erhalten Sie noch mehr Informationen:</p>
+    <div class="infographic">
+    </div>
+    <div class="diagramm1">
+        <p>Werfen wir einen Blick auf die häufigsten Cyber-Angriffe in der Schweiz</p>
+        <div id="rectangle"></div>
+    </div>
 
-<div class="diagramm2">
-  <p>Vergleichen wir nun die Straftaten in der Schweiz im Bezug auf die Cyberkriminalität mit der Anzahl an Twitter-Einträge.</p>
-  <div id="rectangle2"></div>
-  <p> Fazit, tbd</p>
-</div>
+    <div class="diagramm2">
+        <p>Vergleichen wir nun die Straftaten in der Schweiz im Bezug auf die Cyberkriminalität mit der Anzahl an
+            Twitter-Einträge.</p>
+        <div id="rectangle2"></div>
+        <p> Fazit, tbd</p>
+    </div>
 
-  <div class="diagramm3">
-    <p>Nun stellen Sie sich sicher die Frage, wie die Schweiz in Bezug auf die Cyberkriminalität in Europa abschneidet.</p>
-    <p>
-    Was denken Sie, gehört die Schweiz zu den unsicheren Ländern im Europa-Vergleich?</p>
-    <div id="rectangle3"></div>
-  </div>
+    <div class="diagramm3">
+        <p>Nun stellen Sie sich sicher die Frage, wie die Schweiz in Bezug auf die Cyberkriminalität in Europa
+            abschneidet.</p>
+        <p>
+            Was denken Sie, gehört die Schweiz zu den unsicheren Ländern im Europa-Vergleich?</p>
+        <div id="rectangle3"></div>
+    </div>
 
-  <div class="have-you-been-pwned">
-    <p>Jetzt sind Sie dran. Mit Have I Been Pwned können Sie überprüfen, ob ihre Zugangsdaten gehackt wurden.</p>
-    <p>Geben Sie dafür Ihre E-Mail Adresse ein.</p>
-    <div id="rectangle4"></div>
-  </div>
+    <div class="have-you-been-pwned">
+        <p>Jetzt sind Sie dran. Mit Have I Been Pwned können Sie überprüfen, ob ihre Zugangsdaten gehackt wurden.</p>
+        <p>Geben Sie dafür Ihre E-Mail Adresse ein.</p>
+        <div id="rectangle4"></div>
+    </div>
 
 
-<div class="fakten-title">Massnahmen gegen Cyberkriminalität </div>
-<div id="rectangle5"></div>
+    <div class="fakten-title">Massnahmen gegen Cyberkriminalität</div>
+    <div id="rectangle5"></div>
 </div>
 
 <div></div>
 </body>
 <footer>
-  <h3>
-    <span>Data Sources</span>
-    <div class="quelle">
-      <a class="quelle" href=" https://www.bfs.admin.ch/asset/de/je-d-19.02.09.01.03">Digitale Kriminalität</a>
-    </div>
+    <h3>
+        <span>Data Sources</span>
+        <div class="quelle">
+            <a class="quelle" href=" https://www.bfs.admin.ch/asset/de/je-d-19.02.09.01.03">Digitale Kriminalität</a>
+        </div>
 
-  </h3>
+    </h3>
 
-  <h3>
-    <span>Image Source</span>
-    <div class="quelle">
-    <a class="quelle" href="https://bankinghub.de/themen/bankraub-4-0-cyber-crime">Cyberkriminalität</a>
-      <a class="quelle" href="https://www.blue-pencil.ca/top-12-cyber-crime-facts-and-statistics/">Informationsgrafik</a>
-    </div>
-  </h3>
+    <h3>
+        <span>Image Source</span>
+        <div class="quelle">
+            <a class="quelle" href="https://bankinghub.de/themen/bankraub-4-0-cyber-crime">Cyberkriminalität</a>
+            <a class="quelle" href="https://www.blue-pencil.ca/top-12-cyber-crime-facts-and-statistics/">Informationsgrafik</a>
+        </div>
+    </h3>
 </footer>
 </html>
 

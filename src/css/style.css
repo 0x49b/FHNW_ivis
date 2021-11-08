@@ -106,7 +106,10 @@ p{
 }
 
 
-#rectangle, #rectangle2, #rectangle3{
+#rectangle{
+  width: 1000px;
+}
+#rectangle2, #rectangle3{
   width: 1000px;
   height:500px;
   background:grey;
