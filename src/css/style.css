@@ -285,3 +285,10 @@ footer {
     font-size: 16px;
     border-radius: 10px;
 }
+
+.google-trends{
+    height: 45rem;
+    background-image: url("../img/google-trends.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
