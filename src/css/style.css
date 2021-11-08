@@ -197,7 +197,7 @@ footer {
     margin-right: 2%;
     padding: 20px;
     box-sizing: border-box;
-    background: #5D8886;
+    background: var(--teal);
     border-radius: 10px;
 
 }
@@ -272,4 +272,16 @@ footer {
 }
 .ergaenzung{
     font-style: italic;
+}
+
+.button{
+    background-color: var(--teal);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
 }
