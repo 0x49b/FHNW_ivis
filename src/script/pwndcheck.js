@@ -4,6 +4,7 @@
  The API documentation can be found here: https://breachdirectory.com/api
  With the API key, users are also able to log in to the User Control Panel to use more features (the UserCP is in development and in active beta now, but it can still be used): https://breachdirectory.com/usercp
  Thanks for using the service!
+ 3b229106edc4442fa64578547d9667e9
  */
 
 const pwndMail = document.getElementById("pwndMail");
@@ -24,7 +25,6 @@ const checkMail = (mail) => {
         mailInvalid.style.display = 'none';
         loader.style.display = "inline-block";
         resetResults();
-        //getJSON(mail);
         getData(mail)
             .then(data => {
                 console.log(data); // JSON data parsed by `data.json()` call
@@ -44,13 +44,12 @@ const resetResults = () => {
 
 
 async function getData(mail) {
-    let url = `https://breachdirectory.com/api_usage?method=email&key=918b8543267f8baceeee4eff15b2ee7d&query=${mail}`
+    let url = `https://haveibeenpwned.com/api/v3/breachedaccount/${mail}`
     return await fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        method: 'GET', 
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'hibp-api-key': '3b229106edc4442fa64578547d9667e9'
         },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
@@ -62,16 +61,33 @@ const getJSON = (mail) => {
 
     let url = `https://breachdirectory.com/api_usage?method=email&key=918b8543267f8baceeee4eff15b2ee7d&query=${mail}`
 
-    console.log(url)
+    let xhr = new XMLHttpRequest();
 
-    fetch(url, {mode: 'no-cors'})
-        .then(response => response)
-        .then(data => console.log(data))
-        .catch((err) => {
-            loader.style.display = 'none';
-            console.error(`Some error happened => ${err}`)
-            displayError(err)
-        });
+    xhr.open("GET", url);
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.send();
+    // 4. This will be called after the response is received
+    xhr.onload = function () {
+        if (xhr.status != 200) { // analyze HTTP status of the response
+            alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+        } else { // show the result
+            alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
+        }
+    };
+
+    xhr.onprogress = function (event) {
+        if (event.lengthComputable) {
+            alert(`Received ${event.loaded} of ${event.total} bytes`);
+        } else {
+            alert(`Received ${event.loaded} bytes`); // no Content-Length
+        }
+
+    };
+
+    xhr.onerror = function () {
+        alert("Request failed");
+    };
+
 }
 
 const parseResponse = () => {
