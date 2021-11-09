@@ -25,10 +25,11 @@ const checkMail = (mail) => {
         mailInvalid.style.display = 'none';
         loader.style.display = "inline-block";
         resetResults();
-        getData(mail)
+        /*getData(mail)
             .then(data => {
                 console.log(data); // JSON data parsed by `data.json()` call
-            });
+            });*/
+        getJSON(mail)
     } else {
         mailInvalid.style.display = 'inline-block';
         loader.style.display = 'none';
@@ -46,9 +47,8 @@ const resetResults = () => {
 async function getData(mail) {
     let url = `https://haveibeenpwned.com/api/v3/breachedaccount/${mail}`
     return await fetch(url, {
-        method: 'GET', 
+        method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
             'hibp-api-key': '3b229106edc4442fa64578547d9667e9'
         },
         redirect: 'follow', // manual, *follow, error
@@ -59,12 +59,12 @@ async function getData(mail) {
 
 const getJSON = (mail) => {
 
-    let url = `https://breachdirectory.com/api_usage?method=email&key=918b8543267f8baceeee4eff15b2ee7d&query=${mail}`
+    let url = `https://haveibeenpwned.com/api/v3/breachedaccount/${mail}`
 
     let xhr = new XMLHttpRequest();
 
     xhr.open("GET", url);
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.setRequestHeader('hibp-api-key', '3b229106edc4442fa64578547d9667e9');
     xhr.send();
     // 4. This will be called after the response is received
     xhr.onload = function () {
