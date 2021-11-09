@@ -1,10 +1,6 @@
 /**
- * Hi Florian,
- Here's your free API key: 918b8543267f8baceeee4eff15b2ee7d
- The API documentation can be found here: https://breachdirectory.com/api
- With the API key, users are also able to log in to the User Control Panel to use more features (the UserCP is in development and in active beta now, but it can still be used): https://breachdirectory.com/usercp
- Thanks for using the service!
- 3b229106edc4442fa64578547d9667e9
+ * Um auf dem Localhost zu testen muss der local-cors-proxy Proxy installiert werden mit npm install -g local-cors-proxy.
+ * Starten mit lcp --proxyUrl https://haveibeenpwned.com
  */
 
 const pwndMail = document.getElementById("pwndMail");
@@ -25,17 +21,26 @@ const checkMail = (mail) => {
         mailInvalid.style.display = 'none';
         loader.style.display = "inline-block";
         resetResults();
-        /*getData(mail)
+
+        getData(mail)
             .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-            });*/
-        getJSON(mail)
+                loader.style.display = 'none';
+                parseResponse(data);
+            })
+            .catch(err => {
+                loader.style.display = 'none';
+                if (String(err).includes("JSON.parse")) {
+                    displaySuccess();
+                } else {
+                    displayError(err);
+                }
+            });
     } else {
         mailInvalid.style.display = 'inline-block';
         loader.style.display = 'none';
+        resetResults()
     }
 }
-
 
 const resetResults = () => {
     pwndResults.innerText = '';
@@ -43,55 +48,39 @@ const resetResults = () => {
     pwndResults.className = '';
 }
 
-
 async function getData(mail) {
-    let url = `https://haveibeenpwned.com/api/v3/breachedaccount/${mail}`
-    return await fetch(url, {
+    let url = `https://haveibeenpwned.com/api/v3/breachedaccount/${mail}`;
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        url = `http://localhost:8010/proxy/api/v3/breachedaccount/${mail}`;
+    }
+
+    let response = await fetch(url, {
         method: 'GET',
         headers: {
             'hibp-api-key': '3b229106edc4442fa64578547d9667e9'
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    }); // parses JSON response into native JavaScript objects
+        }
+    });
+    return response.json()
 }
 
-
-const getJSON = (mail) => {
-
-    let url = `https://haveibeenpwned.com/api/v3/breachedaccount/${mail}`
-
-    let xhr = new XMLHttpRequest();
-
-    xhr.open("GET", url);
-    xhr.setRequestHeader('hibp-api-key', '3b229106edc4442fa64578547d9667e9');
-    xhr.send();
-    // 4. This will be called after the response is received
-    xhr.onload = function () {
-        if (xhr.status != 200) { // analyze HTTP status of the response
-            alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
-        } else { // show the result
-            alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
-        }
-    };
-
-    xhr.onprogress = function (event) {
-        if (event.lengthComputable) {
-            alert(`Received ${event.loaded} of ${event.total} bytes`);
+const parseResponse = (data) => {
+    pwndResults.innerHTML = '<div> <b>Wir haben Ihre E-Mail Adresse in folgenden Dataleaks gefunden:</b></br></br>';
+    data.forEach((it, idx) => {
+        if (idx < data.length - 1) {
+            pwndResults.innerHTML += `${it.Name}, `;
         } else {
-            alert(`Received ${event.loaded} bytes`); // no Content-Length
+            pwndResults.innerHTML += `${it.Name}`;
         }
-
-    };
-
-    xhr.onerror = function () {
-        alert("Request failed");
-    };
-
+    })
+    pwndResults.innerHTML += "</div>";
+    pwndResults.className = '';
+    pwndResults.classList.add('warning');
 }
 
-const parseResponse = () => {
-
+const displaySuccess = () => {
+    pwndResults.innerHTML = `Wir haben keine Einträge in den Dataleaks gefunden.`;
+    pwndResults.className = '';
+    pwndResults.classList.add('success');
 }
 
 const displayError = (err) => {
