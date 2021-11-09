@@ -24,7 +24,11 @@ const checkMail = (mail) => {
         mailInvalid.style.display = 'none';
         loader.style.display = "inline-block";
         resetResults();
-        getJSON(mail);
+        //getJSON(mail);
+        getData(mail)
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+            });
     } else {
         mailInvalid.style.display = 'inline-block';
         loader.style.display = 'none';
@@ -39,15 +43,35 @@ const resetResults = () => {
 }
 
 
+async function getData(mail) {
+    let url = `https://breachdirectory.com/api_usage?method=email&key=918b8543267f8baceeee4eff15b2ee7d&query=${mail}`
+    return await fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    }); // parses JSON response into native JavaScript objects
+}
+
+
 const getJSON = (mail) => {
-    fetch(`https://BreachDirectory.com/api_usage?method=email&key=918b8543267f8baceeee4eff15b2ee7d&query=${mail}`, {method: 'GET'})
-        .then((response) => {
-            console.log(response);
-        }).catch((err) => {
-        loader.style.display = 'none';
-        console.error(`Some error happened => ${err}`)
-        displayError(err)
-    });
+
+    let url = `https://breachdirectory.com/api_usage?method=email&key=918b8543267f8baceeee4eff15b2ee7d&query=${mail}`
+
+    console.log(url)
+
+    fetch(url, {mode: 'no-cors'})
+        .then(response => response)
+        .then(data => console.log(data))
+        .catch((err) => {
+            loader.style.display = 'none';
+            console.error(`Some error happened => ${err}`)
+            displayError(err)
+        });
 }
 
 const parseResponse = () => {
