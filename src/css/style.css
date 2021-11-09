@@ -310,9 +310,11 @@ input[type=email] {
     border-bottom-left-radius: 40px;
     border-top: 3px solid var(--teal);
     border-left: 3px solid var(--teal);
+    border-right: none;
     border-bottom: 3px solid var(--teal);
     font-family: 'Montserrat-Regular', sans-serif;
     display: inline;
+    background-color: #ffffff;
 }
 
 #searchPwndMail{
@@ -322,8 +324,9 @@ input[type=email] {
     border-bottom-right-radius: 40px;
     border-top: 3px solid var(--teal);
     border-right: 3px solid var(--teal);
+    border-left: none;
     border-bottom: 3px solid var(--teal);
-    background-color: var(--white);
+    background-color: #ffffff;
     display: inline;
 }
 
