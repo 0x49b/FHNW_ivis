@@ -156,15 +156,7 @@ p {
     background: var(--grey);
 }
 
-input[type=email] {
-    width: 100%;
-    height: 75px;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 40px;
-    border: 3px solid var(--teal);
-    font-family: 'Montserrat-Regular', sans-serif;
-}
+
 
 footer {
     text-align: center;
@@ -300,3 +292,84 @@ footer {
     background-position: center;
 }
 
+.inlineForm{
+    padding: 0;
+    margin:25px;
+    text-align: center;
+    width: 100%;
+    display:inline-grid;
+    grid-template-columns: 85% 15%;
+}
+
+input[type=email] {
+    width: 100%;
+    height: 75px;
+    font-size: 30px;
+    text-align: center;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-top: 3px solid var(--teal);
+    border-left: 3px solid var(--teal);
+    border-bottom: 3px solid var(--teal);
+    font-family: 'Montserrat-Regular', sans-serif;
+    display: inline;
+}
+
+#searchPwndMail{
+    height:75px;
+    width:75px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top: 3px solid var(--teal);
+    border-right: 3px solid var(--teal);
+    border-bottom: 3px solid var(--teal);
+    background-color: var(--white);
+    display: inline;
+}
+
+#searchPwndMail:hover{
+    background-color: #cbcbcb;
+}
+
+#searchBtnPwndMail{
+    height:35px;
+    width: auto;
+}
+
+#magnifier:hover{
+    filter: invert(53%) sepia(0%) saturate(6160%) hue-rotate(114deg) brightness(101%) contrast(99%);
+}
+
+#searchBtnPwndMail:hover{
+}
+
+#mailInvalid{
+    color: #600000;
+    background-color: rgba(255, 0, 0, 0.35);
+    padding: 10px 20px;
+    display: none;
+}
+
+.error{
+    color: #600000;
+    background-color: rgba(255, 0, 0, 0.35);
+    padding: 10px 20px;
+}
+
+.success{
+    color: #186100;
+    background-color: rgba(64, 255, 0, 0.35);
+    padding: 10px 20px;
+}
+
+#loader{
+    height: 25px;
+    width: auto;
+    display: none;
+}
+
+
+#pwndResults{
+    width: 100%;
+    height: 40px;
+}

@@ -5,8 +5,7 @@
     <meta name="generator" content="GitLab Pages">
     <title>Cyberkriminalität - ivis pro</title>
     <link rel="stylesheet" href="src/css/style.css">
-    <script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
-    <script src="./src/script/bubble-charts.js"></script>
+
 </head>
 <body>
 
@@ -31,30 +30,30 @@
 
     <p> Zu den am weitesten verbreiteten Methoden von Cyber-Kriminalität gehören unter anderem:</p>
 
-        <div class="boxen-intro">
-            <div class="box1">
-                <div class="box5-picture"></div>
-                <div class="box-title">Schadprogramme (und alle Unterarten) sowie Emotet</div>
-            </div>
-            <div class="box2">
-                <div class="box6-picture"></div>
-                <div class="box-title">Identitätsdiebstahl durch Doxing</div>
-            </div>
-
-            <div class="box3">
-                <div class="box4-picture"></div>
-                <div class="box-title">Spam und Phishing</div>
-            </div>
-            <div class="box4">
-                <div class="box8-picture"></div>
-                <div class="box-title">Botnetze</div>
-            </div>
-
-            <div class="box5">
-                <div class="box9-picture"></div>
-                <div class="box-title">Social Engineering</div>
-            </div>
+    <div class="boxen-intro">
+        <div class="box1">
+            <div class="box5-picture"></div>
+            <div class="box-title">Schadprogramme (und alle Unterarten) sowie Emotet</div>
         </div>
+        <div class="box2">
+            <div class="box6-picture"></div>
+            <div class="box-title">Identitätsdiebstahl durch Doxing</div>
+        </div>
+
+        <div class="box3">
+            <div class="box4-picture"></div>
+            <div class="box-title">Spam und Phishing</div>
+        </div>
+        <div class="box4">
+            <div class="box8-picture"></div>
+            <div class="box-title">Botnetze</div>
+        </div>
+
+        <div class="box5">
+            <div class="box9-picture"></div>
+            <div class="box-title">Social Engineering</div>
+        </div>
+    </div>
 
 
     <div class="fakten-title">Cyberkriminalität wird oft unterschätzt!</div>
@@ -70,11 +69,12 @@
     <h2 class="fakten-title">Die Schweiz 2020</h2>
     <div class="diagramm1">
         <p>Werfen wir einen Blick auf die häufigsten Cyber-Angriffe 2020 in der Schweiz.</p>
-        <p class="ergaenzung">Ergänzung: Die Bubble Chart erhält später noch mehr Darstellungsmöglichkeiten, wie z.B. Geschlecht, Alter etc. </p>
-       <button class="button">Alter</button>
-       <button class="button">Aufenthaltsstatus</button>
-       <button class="button">Aufklärungsrate</button>
-       <button class="button">Total Geschädigte</button>
+        <p class="ergaenzung">Ergänzung: Die Bubble Chart erhält später noch mehr Darstellungsmöglichkeiten, wie z.B.
+            Geschlecht, Alter etc. </p>
+        <button class="button">Alter</button>
+        <button class="button">Aufenthaltsstatus</button>
+        <button class="button">Aufklärungsrate</button>
+        <button class="button">Total Geschädigte</button>
         <div class="chart-place" id="rectangle"></div>
     </div>
 
@@ -93,8 +93,9 @@
             abschneidet.</p>
         <p>
             Was denken Sie, gehört die Schweiz zu den unsicheren Ländern im Europa-Vergleich?</p>
-        <p class="ergaenzung">Ergänzung: Hier kommt ein Ländervergleich auf einer Europakarte. Mehr ist noch nicht definiert. </p>
-        <div class="laender-vergleich" ></div>
+        <p class="ergaenzung">Ergänzung: Hier kommt ein Ländervergleich auf einer Europakarte. Mehr ist noch nicht
+            definiert. </p>
+        <div class="laender-vergleich"></div>
     </div>
 
     <div class="have-you-been-pwned">
@@ -102,7 +103,23 @@
         <p>Mit Breachdirectory können Sie überprüfen, ob ihre Zugangsdaten geleakt wurden.</p>
         <p>Geben Sie dafür Ihre E-Mail Adresse ein.</p>
         <div class="chart-place" id="rectangle4">
-            <input type="email" id="pwndMail" placeholder="mail@example.com">
+
+            <div class="inlineForm">
+                <label for="pwndMail" style="display: none">E-Mail Adress</label>
+
+                <input type="email" id="pwndMail" placeholder="mail@example.com">
+                <button id="searchPwndMail"><img id="searchBtnPwndMail" alt="search" src="./src/img/magnifier.svg">
+                </button>
+
+            </div>
+
+            <small id="mailInvalid">Bitte eine E-Mail Adresse angeben</small>
+            <img alt="loader" src="./src/img/ajax-loader.gif" id="loader">
+
+            <div id="pwndResults">
+
+            </div>
+
         </div>
     </div>
 
@@ -161,9 +178,16 @@
         <div class="quelle">
             <a class="quelle" href="https://bankinghub.de/themen/bankraub-4-0-cyber-crime">Cyberkriminalität</a>
             <a class="quelle" href="https://www.blue-pencil.ca/top-12-cyber-crime-facts-and-statistics/">Informationsgrafik</a>
+            <a class="quelle" href="https://thenounproject.com/search/?q=magnifier&i=1770289">iconcheese @ The Noun
+                Project</a>
         </div>
     </h3>
 </footer>
+
+<script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
+<script src="./src/script/bubble-charts.js"></script>
+<script src="./src/script/pwndcheck.js"></script>
+
 </body>
 </html>
 
