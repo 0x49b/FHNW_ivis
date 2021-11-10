@@ -1,5 +1,4 @@
 # Cyberkriminalität*
-**Subtitle (if any)**
 
 Student 1: Florian Thiévent
 Student 2: Joyce Hänggi
@@ -15,17 +14,17 @@ Zuletzt werden dem Nutzer kurze Massnahmen zur Prävention gegen Cyberkriminalit
 //Add any explanatory comments (or remove this section).
 
 ## Technical information*
-**Main file path**: *index.html
+**Main file path**: index.html
 
-**Source code repo**: *https://gitlab.fhnw.ch/...
+**Source code repo**: https://gitlab.fhnw.ch/joyce.haenggi/ivis
 
 **Supported Browsers**: *Firefox, Chrome
 
 // Any further comments like used frameworks, etc,
 
-## Status*
+## Status
 Change to yes when your application is ready.
-|Version|Status|
-|--|--|
-|First prototype ready | no |
-|Final version ready  | no |
+| Version | Status |  
+| --- | --- |  
+| First prototype ready | yes |  
+| Final version ready  | no |  
