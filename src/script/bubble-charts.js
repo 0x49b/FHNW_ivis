@@ -1,8 +1,80 @@
 d3.text("./src/data/cybercrime-switzerland-2020.csv")
     .then(d3.csvParse)
-    .then(charting);
+    .then(tryData);
 
 //.then(BubbleChart(data, {}));
+const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
+
+function tryData(data) {
+
+    const rectangle = document.getElementById("rectangle");
+    const moreData = document.getElementById("more-data-box");
+
+    let bubbles = d3.select("#rectangle")
+        .append("svg")
+        .attr("width", rectangle.getBoundingClientRect().width)
+        .attr("id", "bubbles");
+
+    let r = 10;
+    let cx = r;
+    let cy = r;
+    let m = r + 5;
+
+    let previousTitle = "";
+
+    for (let i = 0; i < data.length; i++) {
+        let circles = calcPoints(data[i].cases)
+        let colorVal = randomHex()
+
+        for (let c = 0; c < circles; c++) {
+
+            let dta = data[i];
+
+            bubbles.append("circle")
+                .attr("cx", cx)
+                .attr("cy", cy)
+                .attr("id", c)
+                .attr("data-title", data[i].title)
+                .attr("fill", colorVal)
+                .attr("r", r)
+                .on('mouseover', function (d, i) {
+                    moreData.style.display = 'block';
+                    updateMoreData(dta);
+                })
+                .on('mouseout', function (d, i) {
+                });
+
+            cx += r + m;
+
+            if (cx >= rectangle.getBoundingClientRect().width) {
+                cy += r + m;
+                cx = r;
+            }
+        }
+    }
+
+    rectangle.style.height = cy + "px";
+    const bubblesSvg = document.getElementById("bubbles");
+    bubbles.onmouseout = () => {
+        ;
+        moreData.style.display = 'none';
+    }
+    bubblesSvg.setAttribute("height", (cy + r) + "px");
+}
+
+function updateMoreData(data) {
+
+    const moreData = document.getElementById("more-data-box");
+    const moreDataTitle = document.getElementById("more-data-title");
+    moreDataTitle.innerText = data.title;
+
+}
+
+
+function calcPoints(numberOfCases) {
+    return (Math.ceil(numberOfCases / 10) * 10) / 10;
+}
+
 
 function logging(data) {
     console.table(data)
