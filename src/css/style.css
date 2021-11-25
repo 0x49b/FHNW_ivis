@@ -134,8 +134,29 @@ p {
     background-repeat: no-repeat;
 }
 
-.chart-place {
-    width: auto;
+/*.chart-place {
+    width: 100%;
+    height: auto;
+
+}*/
+
+#more-data-box{
+    position: fixed;
+    top: 10px;
+    left: 0;
+    height: auto;
+    width: 100%;
+    font-size: 1.5em;
+    background-color: rgba(0,0,0, 0.6);
+    padding: 10px 0;
+    margin: 0;
+    color: white;
+    display: none;
+}
+
+small{
+    position: relative;
+    top: 10px;
 }
 
 #rectangle2, #rectangle3 {
