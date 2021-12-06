@@ -1,11 +1,16 @@
-d3.text("./src/data/cybercrime-switzerland-2020.csv")
+
+
+d3.text("https://raw.githubusercontent.com/lichtwellenreiter/ivis-test/master/data/cybercrime-switzerland-2020.csv")
     .then(d3.csvParse)
     .then(tryData);
 
+
 const rectangle = document.getElementById("bubble-chart");
 const moreData = document.getElementById("more-data-box");
+const close = document.getElementById("close");
 
-rectangle.onmouseleave = e => moreData.style.display = "none";
+//rectangle.onmouseleave = e => moreData.style.display = "none";
+close.onclick = _ => moreData.style.display = 'none';
 
 function tryData(data) {
 
@@ -28,10 +33,12 @@ function tryData(data) {
 
         const cases_for_cat = getCasesForCategory(data, it);
         const circles = calcPoints(cases_for_cat);
-        let colorVal = getColorForCategory(data, it);
+        let colorVal = '#000000';
 
 
         for (let c = 0; c < circles; c++) {
+
+            //(idx % 2 === 0) ? colorVal = '#000000' : colorVal = '#ffffff';
 
             bubbles.append("circle")
                 .attr("cx", cx)
@@ -43,6 +50,13 @@ function tryData(data) {
                 .on('mouseover', function (d, i) {
                     moreData.style.display = 'block';
                     updateMoreData(data, it);
+                })
+                .on('touchstart', function (d, i) {
+                    moreData.style.display = 'block';
+                    updateMoreData(data, it);
+                })
+                .on('touchend', function (d, i) {
+                    moreData.style.display = 'none';
                 });
 
             cx += r + m;
@@ -51,6 +65,8 @@ function tryData(data) {
                 cx = r;
             }
         }
+        cx = r;
+        cy += 20;
     });
 
     rectangle.style.height = cy + "px";
@@ -94,8 +110,6 @@ const getColorForCategory = (data, category) => {
 }
 
 
-
-
 async function updateMoreData(data, category) {
 
     const moreData = document.getElementById("more-data-box");
@@ -105,10 +119,9 @@ async function updateMoreData(data, category) {
     const moreDataReadMore = document.getElementById("more-data-read-more");
 
     moreDataTitle.innerText = category;
-    moreDataCases.innerText = `Fälle 2020: ${getCasesForCategory(data, category)}`;
+    moreDataCases.innerText = `${getCasesForCategory(data, category)} Fälle`;
     //moreDataExcerpt.innerText = await getExcerptFromWikipedia(getWikipediaTitleForCategory(data, category));
 }
-
 
 
 function calcPoints(numberOfCases) {

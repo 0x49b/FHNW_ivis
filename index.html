@@ -1,167 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Cyberkriminalität - ivis pro</title>
-    <link rel="stylesheet" href="src/css/style.css">
+    <meta charset="UTF-8">
+    <title>Cyberkriminalität Schweiz</title>
+    <link rel="stylesheet" href="assets/fullpage.min.css">
+    <script src="assets/fullpage.min.js"></script>
+    <script src="assets/anime.min.js"></script>
+    <script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Patua+One&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="assets/ivis.css">
 </head>
 <body>
 
+<div id="fullpage">
 
-<div class="header">
-    <div class="text-in-picture">
-        <h1>
-            <span>Cyberkriminalität</span>
-        </h1>
+    <div class="section">
+
+
+        <canvas width="500" height="200" id="canv"></canvas>
+        <div class="scroll-down">
+            <span class="main-title">Cybercrime</span>
+            <div>scroll down</div>
+            <img src="assets/arrow_down.svg" class="arrow arrow-down" id="arrow-down">
+        </div>
+
+    </div>
+
+    <div class="section fp-table fp-section section-one">
+        <div class="fp-tableCell">
+            <h1 class="count" data-target="24398">0</h1>
+            <h2>Fälle von Cyberkriminalität gab es 2020 in der Schweiz.</h2>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>Aufteilung nach Art des Vergehens</h2>
+        <div id="bubble-chart"></div>
+        <p class="speech-bubble" id="more-data-box">
+            <img id="close" src="assets/cross.svg" alt="close">
+            <span id="more-data-title"></span><br/>
+            <span id="more-data-cases"></span><br/>
+        </p>
+
+        <div class="disclaimer">Ein Punkt zeigt bis 10 Fälle an, die Fälle pro Kategorie sind auf den nächsten Zehner gerundet in der Darstellung.</div>
+    </div>
+
+
+    <div class="section">
+        <h2 class="p0 m0">Quellen?</h2>
+        <h3 class="p0 m0">Haben wir!</h3>
+        <div>
+            <ul class="t0 m0 p0 sources">
+                <li><a href="https://bit.ly/315YzcL" target="_blank">Bundesamt für Statistik - Digitale Kriminalität</a>
+                </li>
+            </ul>
+        </div>
+        <div class="authors">
+            Joyce Hänggi • Florian Thiévent • ivis HS21
+        </div>
     </div>
 </div>
-<div class="text-div">
-    <h2 class="fakten-title">Was ist Cyberkriminalität?</h2>
-    <p>Gemäss dem Bundesamt für Sicherheit in der Informationstechnik (kurz BSI) versteht man unter dem Begriff
-        Cyberkriminalität (engl. cybercrime) alle Straftaten, die moderne Informationstechnik und elektronische
-        Infrastrukturen (aus-) nutzen.</p>
-    <p>
-        Die Bandbreite von Straftaten im Bereich Cyber-Kriminalität wächst stetig an.
-        Durch die fortschreitende Digitalisierung der Gesellschaft entstehen immer neue IT-Anwendungen in unserem
-        Alltag.
-        Damit gehen potenzielle Sicherheitslücken unweigerlich einher.</p>
-
-    <p> Zu den am weitesten verbreiteten Methoden von Cyber-Kriminalität gehören unter anderem:</p>
-
-    <div class="boxen-intro">
-
-        <div class="diagramm1">
-            <div class="chart-place" id="bubble-chart"></div>
-
-            <small>1 Punkt sind 10 Vorfälle</small>
-        </div>
-
-        <div id="more-data-box">
-            <h2 id="more-data-title"></h2>
-            <div id="more-data-cases"></div>
-            <div id="more-data-excerpt"></div>
-            <div id="more-data-read-more"></div>
-        </div>
-    </div>
 
 
-    <h2 class="fakten-title">Effektive Zahlen vs. Google-Trends</h2>
-    <div class="diagramm2">
-        <p>Vergleichen wir nun die Straftaten in der Schweiz im Bezug auf die Cyberkriminalität mit der Anzahl an
-            Google-Einträge.</p>
-        <p class="ergaenzung">Ergänzung: Untenstehend eine mögliche Darstellung: </p>
-        <div class="google-trends"></div>
-        <p> Fazit, tbd</p>
-    </div>
+<script>
 
-    <div class="have-you-been-pwned">
-        <div class="fakten-title">Jetzt sind Sie dran.</div>
-        <p>Mit Have I Been Pwned? können Sie überprüfen, ob ihre Zugangsdaten geleakt wurden.</p>
-        <p>Geben Sie dafür Ihre E-Mail Adresse ein.</p>
-        <div class="chart-place" id="rectangle4">
-
-            <div class="inlineForm">
-                <label for="pwndMail" style="display: none">E-Mail Adress</label>
-
-                <input type="email" id="pwndMail" placeholder="mail@example.com">
-                <button id="searchPwndMail"><img id="searchBtnPwndMail" alt="search" src="./src/img/magnifier.svg">
-                </button>
-
-            </div>
-
-            <small id="mailInvalid">Bitte eine E-Mail Adresse angeben</small>
-            <img alt="loader" src="./src/img/ajax-loader.gif" id="loader">
-
-            <div id="pwndResults">
-
-            </div>
-
-        </div>
-    </div>
+    anime({
+        targets: 'img.arrow-down',
+        translateY: 30,
+        direction: 'alternate',
+        loop: true,
+        easing: function (el, i, total) {
+            return function (t) {
+                return Math.pow(Math.sin(t * (i + 1)), total);
+            }
+        }
+    });
 
 
-    <div class="fakten-title">Cyberkriminalität wird oft unterschätzt!</div>
-    <div class="fakten-boxen">
+    const counters = document.querySelectorAll('.count');
+    const speed = 300;
 
-        <div class="fakten-box1">
-            <div class="fakten-box1-picture"></div>
-        </div>
-        <div class="fakten-box2">
-            <p>Einzelpersonen wie auch Unternehmen werden oft Opfer von Cyberkriminalität.</br>
-                </br>
-                Der Schwachpunkt liegt oftmals im Menschen durch seine Unwissenheit, Nachlässigkeit oder Neugier.</br>
-                </br>
-                Aus diesem Grund ist neben der notwendigen IT-Sicherheit auch eine Sensibilisierung und Schulung des
-                Menschen
-                notwendig.</p>
-        </div>
+    const runCounters = _ => {
+        counters.forEach((counter) => {
 
-    </div>
-    <div class="fakten-title">Massnahmen gegen Cyberkriminalität</div>
-    <div class="boxen">
-        <div class="box1">
-            <div class="box1-picture"></div>
-            <div class="box-title">Update</div>
-        </div>
-        <div class="box2">
-            <div class="box2-picture"></div>
-            <div class="box-title">Antivirus</div>
-        </div>
+            counter.innerText = 0;
 
-        <div class="box3">
-            <div class="box3-picture"></div>
-            <div class="box-title">Password</div>
-        </div>
-        <div class="box4">
-            <div class="box4-picture"></div>
-            <div class="box-title">Don't open spam</div>
-        </div>
-    </div>
+            function updateCount() {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const count = parseInt(counter.innerText);
+                const increment = Math.trunc(target / speed);
+                if (count < target) {
+                    counter.innerText = count + increment;
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            }
+
+            updateCount();
+
+        });
 
 
-</div>
+    }
 
-<footer>
-    <h3>
-        <span>Data Sources</span>
-        <div class="quelle">
-            <a class="quelle" href=" https://www.bfs.admin.ch/asset/de/je-d-19.02.09.01.03">Digitale Kriminalität</a>
-            </br>
-            <a class="quelle" href="https://www.blue-pencil.ca/top-12-cyber-crime-facts-and-statistics/">Top 12
-                Cybercrime Facts and Statistics</a>
-            </br>
-            <a class="quelle"
-               href="https://www.csoonline.com/article/3634869/top-cybersecurity-statistics-trends-and-facts.html">Top
-                cybersecurity statistics, trends, and facts</a>
-            </br>
-            <a class="quelle" href="https://www.darkreading.com/endpoint/5-reasons-cybercriminals-target-healthcare">5
-                Reasons Cybercriminals Target Healthcare</a>
-            </br>
-            <a class="quelle"
-               href="https://www.optus.com.au/enterprise/accelerate/security/10-sobering-facts-and-stats-about-cyber-crime">10
-                sobering facts and stats about cyber crime</a>
-            </br>
-            <a class="quelle"
-               href="https://heimdalsecurity.com/blog/10-surprising-cyber-security-facts-that-may-affect-your-online-safety/">10
-                Alarming Cyber Security Facts</a>
-        </div>
-    </h3>
 
-    <h3>
-        <span>Image Source</span>
-        <div class="quelle">
-            <a class="quelle" href="https://bankinghub.de/themen/bankraub-4-0-cyber-crime">Cyberkriminalität</a>
-            <a class="quelle" href="https://www.blue-pencil.ca/top-12-cyber-crime-facts-and-statistics/">Informationsgrafik</a>
-            <a class="quelle" href="https://thenounproject.com/search/?q=magnifier&i=1770289">iconcheese @ The Noun
-                Project</a>
-        </div>
-    </h3>
-</footer>
+    new fullpage("#fullpage", {
+        autoScrolling: true,
+        scrollHorizontally: true,
+        navigation: true,
+        navigationPosition: 'right',
+        sectionsColor: ['#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00',],
+        afterLoad: (origin, destination, direction) => runCounters()
+    });
+</script>
 
-<script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
-<script src="./src/script/bubble-charts.js"></script>
-<script src="./src/script/pwndcheck.js"></script>
+<script src="assets/bubbles.js"></script>
+<script src="assets/matrix.js"></script>
 
 </body>
 </html>
