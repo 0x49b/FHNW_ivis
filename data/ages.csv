@@ -1,4 +1,6 @@
-Title, >20,20-39,	40-59,	60+,	ohne Angaben
-Cyber Wirtschaftskriminalität,271, 331, 773,206, 	44
-Cyber Sexualdelikte,821,680,361,92,2
-Cyber Rufschädigung und unlauteres Verhalten,156,277,210,58, 	3
+group,Cyber Wirtschaftskriminalität,Cyber Sexualdelikte,Cyber Rufschädigung und unlauteres Verhalten
+unter 20,271 ,821,156
+21-39,1331,680,277
+40-59,773,361,210
+60+,206,92,58
+ohne Angaben,44,2,3

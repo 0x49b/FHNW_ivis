@@ -1,4 +1,3 @@
-
 // set the dimensions and margins of the graph
 const margin = {top: 10, right: 30, bottom: 20, left: 50},
     width = 460 - margin.left - margin.right,
@@ -9,14 +8,16 @@ const svg = d3.select("#bar_chart")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("transform", 'rotate(90deg)')
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv").then( function(data) {
+d3.csv("data/ages.csv").then( function(data) {
 
     // List of subgroups = header of the csv files = soil condition here
     const subgroups = data.columns.slice(1)
+
 
     // List of groups = species here = value of the first column called group -> I show them on the X axis
     const groups = data.map(d => (d.group))
@@ -32,7 +33,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
 
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([0, 60])
+        .domain([0, 2500])
         .range([ height, 0 ]);
     svg.append("g")
         .call(d3.axisLeft(y));
@@ -43,9 +44,6 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
 const color = d3.scaleOrdinal()
     .domain(subgroups)
     .range(['#e41a1c','#377eb8','#4daf4a'])
-
-
-
 
     //stack the data? --> stack per subgroup
     const stackedData = d3.stack()
@@ -60,6 +58,7 @@ const color = d3.scaleOrdinal()
         .join("g")
         .attr("fill", d => color(d.key))
         .selectAll("rect")
+
         // enter a second time = loop subgroup per subgroup to add all rectangles
         .data(d => d)
         .join("rect")
@@ -67,4 +66,5 @@ const color = d3.scaleOrdinal()
         .attr("y", d => y(d[1]))
         .attr("height", d => y(d[0]) - y(d[1]))
         .attr("width",x.bandwidth())
+
 })
