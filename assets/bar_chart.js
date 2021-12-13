@@ -1,89 +1,70 @@
 
+// set the dimensions and margins of the graph
+const margin = {top: 10, right: 30, bottom: 20, left: 50},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
-d3.text("https://raw.githubusercontent.com/lichtwellenreiter/ivis-test/master/data/cybercrime-switzerland-2020.csv")
-    .then(d3.csvParse)
-    .then(tryData);
+// append the svg object to the body of the page
+const svg = d3.select("#bar_chart")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
+// Parse the Data
+d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv").then( function(data) {
 
-const rectangle = document.getElementById("bar-chart");
+    // List of subgroups = header of the csv files = soil condition here
+    const subgroups = data.columns.slice(1)
 
+    // List of groups = species here = value of the first column called group -> I show them on the X axis
+    const groups = data.map(d => (d.group))
 
-//rectangle.onmouseleave = e => moreData.style.display = "none";
-close.onclick = _ => moreData.style.display = 'none';
+    // Add X axis
+    const x = d3.scaleBand()
+        .domain(groups)
+        .range([0, width])
+        .padding([0.2])
+    svg.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x).tickSizeOuter(0));
 
-function tryData(data) {
+    // Add Y axis
+    const y = d3.scaleLinear()
+        .domain([0, 60])
+        .range([ height, 0 ]);
+    svg.append("g")
+        .call(d3.axisLeft(y));
 
-    let bubbles1 = d3.select("#bar-chart")
-        .append("svg")
-        .attr("width", 900)
-        .attr("id", "bubbles1");
-
-    let r = 5;
-    let cx = r;
-    let cy = r;
-    let m = r + 2;
-
-    let previousTitle = "";
-    const categories = getCategories(data)
-
-    console.log(categories)
-
-    categories.forEach((it, idx) => {
-
-        const cases_for_cat = getCasesForCategory(data, it);
-        const circles = calcPoints(cases_for_cat);
-        let colorVal = '#000000';
-
-
-        for (let c = 0; c < circles; c++) {
-
-            //(idx % 2 === 0) ? colorVal = '#000000' : colorVal = '#ffffff';
-
-            bubbles1.append("circle")
-                .attr("cx", cx)
-                .attr("cy", cy)
-                .attr("id", c)
-                .attr("data-title", it)
-                .attr("fill", colorVal)
-                .attr("r", r);
-
-            cx += r + m;
-            if (cx >= rectangle.getBoundingClientRect().width) {
-                cy += r + m;
-                cx = r;
-            }
-        }
-        cx = r;
-        cy += 20;
-    });
-
-    rectangle.style.height = cy + "px";
-    const bubbles1Svg = document.getElementById("bubbles1");
-    bubbles1Svg.setAttribute("height", (cy + r) + "px");
-}
+    // color palette = one color per subgroup
 
 
-const getCategories = data => {
-    const categories = [];
-    data.forEach(d => categories.push(d.category));
-    return [...new Set(categories)];
-}
-
-const getCasesForCategory = (data, category) => {
-    let cases = 0;
-    data.forEach(d => {
-        (d.category === category) ? cases += parseInt(d.cases) : "";
-    });
-    return cases;
-}
+const color = d3.scaleOrdinal()
+    .domain(subgroups)
+    .range(['#e41a1c','#377eb8','#4daf4a'])
 
 
 
 
+    //stack the data? --> stack per subgroup
+    const stackedData = d3.stack()
+        .keys(subgroups)
+        (data)
 
-
-function calcPoints(numberOfCases) {
-    const c = (Math.ceil(numberOfCases / 10) * 10) / 10;
-    return (c > 0) ? c : 1;
-}
-
+    // Show the bars
+    svg.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData)
+        .join("g")
+        .attr("fill", d => color(d.key))
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data(d => d)
+        .join("rect")
+        .attr("x", d => x(d.data.group))
+        .attr("y", d => y(d[1]))
+        .attr("height", d => y(d[0]) - y(d[1]))
+        .attr("width",x.bandwidth())
+})
