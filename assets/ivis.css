@@ -137,6 +137,9 @@ a:hover {
 }
 
 #bar_chart {
+    width: auto;
+    height: 20rem;
+    margin-left: 40rem;
     transform: rotate(90deg);
 }
 
@@ -159,3 +162,5 @@ text {
     left: 50%;
     transform: translate(-50%, 0);
 }
+
+
