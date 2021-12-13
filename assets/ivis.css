@@ -124,24 +124,38 @@ a:hover {
     transform: translate(-50%, 0);
 }
 
-/*
-.speech-bubble::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: 100%;
-    left: 1.5em;
-    border: .75rem solid transparent;
-    border-top: none;
-    border-bottom-color: #000000;
-    filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
-}
-*/
 
 .authors {
     position: absolute;
     bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#bar_chart_outer {
+
+}
+
+#bar_chart {
+    transform: rotate(90deg);
+}
+
+text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    transform: rotate(-90deg) translate(-120px, -10px);
+    text-align: right;
+}
+
+.domain {
+    display: none;
+}
+
+.alter-legende {
+    position: absolute;
+    font-size: 0.6em;
+    bottom: 100px;
     left: 50%;
     transform: translate(-50%, 0);
 }
