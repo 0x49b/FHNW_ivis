@@ -28,5 +28,5 @@
 * Verschieden CVE's
 * Beispiele von CC in der Schweiz
 * Grafiken und Tabellen (mit/ohne Animation)
-* max. 6 Slides durch interaktive Demo ersetzten
+* max. 6 Slides durch interaktive Demo ersetzen
 
