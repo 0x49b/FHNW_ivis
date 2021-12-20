@@ -24,7 +24,6 @@
 20. Folie:
 
 ## Ideen
-
 * Log4Shell Zero-Day-Exploit
 * Verschieden CVE's
 * Beispiele von CC in der Schweiz
