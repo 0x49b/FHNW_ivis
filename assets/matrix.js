@@ -1,15 +1,15 @@
 const canvas = document.getElementById('canv');
 const ctx = canvas.getContext('2d');
 
-const w = canvas.width = document.body.offsetWidth;
-const h = canvas.height = document.body.offsetHeight;
+let w = canvas.width = document.body.offsetWidth;
+let h = canvas.height = document.body.offsetHeight;
 const cols = Math.floor(w / 20) + 1;
 const ypos = Array(cols).fill(0);
 
 ctx.fillStyle = '#000';
 ctx.fillRect(0, 0, w, h);
 
-function matrix () {
+function matrix() {
     ctx.fillStyle = 'rgba(246,220,0,0.1)';
     ctx.fillRect(0, 0, w, h);
 
@@ -24,5 +24,6 @@ function matrix () {
         else ypos[ind] = y + 20;
     });
 }
+
 
 setInterval(matrix, 50);

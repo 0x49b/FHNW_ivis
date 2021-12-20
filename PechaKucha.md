@@ -31,11 +31,13 @@
 * max. 6 Slides durch interaktive Demo ersetzen
 
 ## Aufteilung
-Flo:
-    Have I been Pwned?
-    Bar Chart Google Trends
-    On Scroll behaviour
-    Resizing Matrix Canvas
-Joyce:
-    Color Palette
-    Legend für Aufteilung nach Alter
+
+#### Flo:
+* [x] Have I been Pwned?
+* [ ] Bar Chart Google Trends
+* [x] On Scroll behaviour
+* [ ] ~~Resizing Matrix Canvas~~
+
+#### Joyce:
+* [ ] Color Palette
+* [ ] Legend für Aufteilung nach Alter

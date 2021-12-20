@@ -74,12 +74,12 @@ function tryData(data) {
     bubblesSvg.setAttribute("height", (cy + r) + "px");
 }
 
-const getWikipediaTitleForCategory = (data, category) => {
-    let wikipedia = "";
+const getURLForCategory = (data, category) => {
+    let url = "";
     data.forEach(d => {
-        (d.category === category) ? wikipedia = d.wikipedia : "";
+        (d.category === category) ? url = d.url : "";
     });
-    return wikipedia;
+    return url;
 }
 
 
@@ -116,11 +116,12 @@ async function updateMoreData(data, category) {
     const moreDataTitle = document.getElementById("more-data-title");
     const moreDataExcerpt = document.getElementById("more-data-excerpt");
     const moreDataCases = document.getElementById("more-data-cases");
-    const moreDataReadMore = document.getElementById("more-data-read-more");
+    const moreDataLink = document.getElementById("more-data-link");
 
     moreDataTitle.innerText = category;
     moreDataCases.innerText = `${getCasesForCategory(data, category)} Fälle`;
-    //moreDataExcerpt.innerText = await getExcerptFromWikipedia(getWikipediaTitleForCategory(data, category));
+    //moreDataExcerpt.innerText = await getExcerptFromWikipedia(getURLForCategory(data, category));
+    moreDataLink.setAttribute('href', getURLForCategory(data, category));
 }
 
 

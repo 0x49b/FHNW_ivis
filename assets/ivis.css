@@ -2,6 +2,17 @@
     --yellow: #f6dc00;
     --black: #000000;
     --yellow-light: #e0d066;
+    --grey: #2f3640;
+
+    --error: rgba(231, 76, 60, 1.0);
+    --error-bg: rgba(231, 76, 60, 0.3);
+
+    --warning: rgba(155, 89, 182, 1.0);
+    --warning-bg: rgba(155, 89, 182, 0.3);
+
+    --success: rgba(46, 204, 113, 1.0);
+    --success-bg: rgba(46, 204, 113, 0.3);
+
 }
 
 body {
@@ -68,7 +79,7 @@ a:hover {
 
 .scroll-down {
     position: absolute;
-    top: 40%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--black);
@@ -88,10 +99,16 @@ a:hover {
 
 #more-data-box {
     display: none;
+    bottom: 5px;
 }
 
 #more-data-title {
     font-size: 2em;
+}
+
+#more-data-link {
+    font-size: .75rem;
+    color: var(--yellow);
 }
 
 #close {
@@ -134,7 +151,6 @@ a:hover {
 }
 
 #bar_chart_outer {
-
 }
 
 #bar_chart {
@@ -164,9 +180,9 @@ text {
     transform: translate(-50%, 0);
 }
 
-.email-input{
+.email-input {
     font-size: 2rem;
-    width:50rem;
+    width: 50rem;
     height: 4rem;
     border-radius: 1rem;
     border: 3px solid var(--black);
@@ -178,8 +194,71 @@ text {
 }
 
 
-.email-input:focus{
+.email-input:focus {
     outline: none;
+}
+
+
+.loader {
+    display: none;
+    border: 5px solid var(--yellow-light);
+    border-radius: 50%;
+    border-top: 5px solid var(--grey);
+    width: 25px;
+    height: 25px;
+    -webkit-animation: spin .75s linear infinite; /* Safari */
+    animation: spin .75s linear infinite;
+}
+
+#mailInvalid {
+    display: none;
+    color: var(--error);
+    font-weight: 800;
+    background-color: var(--error-bg);
+    padding: 10px;
+    border-radius: .5rem;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.message {
+    padding: 10px;
+    border-radius: .5rem;
+    width: 50rem;
+    max-height: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.warning {
+
+}
+
+.success {
+
+}
+
+.error {
+    color: var(--error);
+    background-color: var(--error-bg);
 }
 
 
