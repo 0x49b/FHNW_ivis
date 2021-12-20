@@ -14,8 +14,9 @@
 11. Folie:
 12. Folie:
 13. Folie:
-14. Folie:
-15. Folie:
+14. Folie:  
+-- Animation  
+15. Folie:  
 16. Folie:
 17. Folie:
 18. Folie:
@@ -24,9 +25,18 @@
 
 ## Ideen
 
-* Log4Shell
+* Log4Shell Zero-Day-Exploit
 * Verschieden CVE's
 * Beispiele von CC in der Schweiz
 * Grafiken und Tabellen (mit/ohne Animation)
 * max. 6 Slides durch interaktive Demo ersetzen
 
+## Aufteilung
+Flo:
+    Have I been Pwned?
+    Bar Chart Google Trends
+    On Scroll behaviour
+    Resizing Matrix Canvas
+Joyce:
+    Color Palette
+    Legend für Aufteilung nach Alter

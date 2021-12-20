@@ -1,6 +1,7 @@
 :root {
     --yellow: #f6dc00;
     --black: #000000;
+    --yellow-light: #e0d066;
 }
 
 body {
@@ -161,6 +162,24 @@ text {
     bottom: 100px;
     left: 50%;
     transform: translate(-50%, 0);
+}
+
+.email-input{
+    font-size: 2rem;
+    width:50rem;
+    height: 4rem;
+    border-radius: 1rem;
+    border: 3px solid var(--black);
+    background-color: var(--yellow-light);
+    padding-left: 1rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--black);
+}
+
+
+.email-input:focus{
+    outline: none;
 }
 
 
