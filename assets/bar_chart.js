@@ -41,7 +41,7 @@ d3.csv("data/ages.csv").then(function (data) {
     // color palette = one color per subgroup
     const color = d3.scaleOrdinal()
         .domain(subgroups)
-        .range(['#000000', '#212121', '#727272', '#9a9999', '#e0e0e0'])
+        .range(['#000000', '#3E3E3E', '#727272', '#9a9999', '#e0e0e0'])
 
     //stack the data? --> stack per subgroup
     const stackedData = d3.stack()
