@@ -173,12 +173,49 @@ text {
 }
 
 .alter-legende {
+    display: flex;
     position: absolute;
     font-size: 0.6em;
     bottom: 100px;
     left: 50%;
     transform: translate(-50%, 0);
 }
+
+.square {
+    width: 20px;
+    height: 20px;
+    margin-left: 5em;
+}
+
+#legend-one {
+    background: #000000;
+}
+
+#legend-two {
+    background: #3E3E3E;
+}
+
+#legend-three {
+    background: #727272;
+}
+
+#legend-four {
+    background: #9a9999;
+}
+
+#legend-five {
+    background: #e0e0e0;
+}
+
+.content {
+    padding-top: 0.1em;
+    padding-left: 0.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+
+}
+
 
 .email-input {
     font-size: 2rem;
