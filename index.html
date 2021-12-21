@@ -39,6 +39,7 @@
             <img id="close" src="assets/cross.svg" alt="close">
             <span id="more-data-title"></span><br/>
             <span id="more-data-cases"></span><br/>
+            <a href="#" id="more-data-link" target="_blank">mehr Infos </a>
         </p>
 
         <div class="disclaimer">Ein Punkt zeigt bis 10 Fälle an, die Fälle pro Kategorie sind auf den nächsten Zehner
@@ -51,14 +52,34 @@
         <div id="bar_chart_outer">
             <div id="bar_chart"></div>
         </div>
-        <div class="alter-legende">Hier Legende</div>
+        <div class="alter-legende">
+            <div class="square" id="legend-one"></div>
+            <div class="content"><20</div>
+
+            <div class="square" id="legend-two"></div>
+            <div class="content">20-39</div>
+
+            <div class="square" id="legend-three"></div>
+            <div class="content">40-59</div>
+
+            <div class="square" id="legend-four"></div>
+            <div class="content">60+</div>
+
+            <div class="square" id="legend-five"></div>
+            <div class="content">ohne Angaben</div>
+        </div>
     </div>
 
 
     <div class="section">
         <h2>Have you been pwned?</h2>
-        <input id="pwned-email" type="email" class="email-input">
-        <p class="alter-legende">Nach Eingabe Enter drücken um Abfrage zu senden.</p>
+        <label for="pwndMail"></label><input id="pwndMail" type="email" class="email-input">
+        <p class="small-text">Nach Eingabe Enter drücken um die Abfrage zu senden.</p>
+        <small id="mailInvalid">Bitte eine gültige E-Mail Adresse angeben</small>
+        <div class="loader" id="loader"></div>
+
+        <div id="pwndResults"></div>
+
     </div>
 
 
@@ -76,6 +97,13 @@
         </div>
     </div>
 </div>
+
+
+<script src="assets/bubbles.js"></script>
+<script src="assets/matrix.js"></script>
+<script src="assets/stacked_bar.js"></script>
+<script src="assets/bar_chart.js" type="module"></script>
+<script src="assets/pwndcheck.js" type="module"></script>
 
 
 <script>
@@ -120,23 +148,34 @@
 
     }
 
+    function resetMessages() {
+
+        const pwndResults = document.getElementById("pwndResults");
+        const moreData = document.getElementById("more-data-box");
+
+        pwndResults.innerText = '';
+        pwndResults.innerHTML = '';
+        pwndResults.className = '';
+
+
+        moreData.style.display = 'none';
+
+    }
+
     new fullpage("#fullpage", {
         autoScrolling: true,
         scrollHorizontally: true,
         navigation: true,
         navigationPosition: 'right',
-        sectionsColor: ['#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00',],
-        afterLoad: (origin, destination, direction) => runCounters()
+        sectionsColor: ['#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00',],
+        afterLoad: (origin, destination, direction) => {
+            runCounters();
+            resetMessages();
+
+        }
     });
 
-    // const pwnMail = document.
-
 </script>
-
-<script src="assets/bubbles.js"></script>
-<script src="assets/matrix.js"></script>
-<script src="assets/stacked_bar.js"></script>
-<script src="assets/bar_chart.js" type="module"></script>
 
 
 </body>
