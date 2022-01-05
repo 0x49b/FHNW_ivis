@@ -75,16 +75,17 @@ a:hover {
 
 #canv {
     background-color: var(--yellow);
-}
+    }
 
 .scroll-down {
-    position: absolute;
-    top: 20%;
+    /*position: absolute;*/
+    /*top: 20%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
+
     background-color: var(--black);
-    min-height: 250px;
-    min-width: 200px;
+    height: 250px;
+    width: 565px;
     border-radius: 1rem;
     padding: 20px;
     color: var(--yellow);
