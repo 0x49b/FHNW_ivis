@@ -56,17 +56,19 @@ async function getData(mail) {
             xhr.setRequestHeader("hibp-api-key", "3b229106edc4442fa64578547d9667e9")
         }, success: function (data) {
             console.log(data);
+
             //process the JSON data etc
         }, error: function (err) {
             console.log(err)
         }
-    })
+    });
 
 
     let url = `https://haveibeenpwned.com/api/v3/breachedaccount/${mail}`;
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+
+    /*if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
         url = `http://localhost:8010/proxy/api/v3/breachedaccount/${mail}`;
-    }
+    }*/
 
     let response = await fetch(url, {
         method: 'GET',
