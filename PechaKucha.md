@@ -1,42 +1,40 @@
 # Pecha Kucha
 ## Cybercrime - 20 Folien, jede 20 Sec
 
-Intro (40 Sek)
+Intro (1 Min)
 1. Folie: Log4Shell
 2. Folie: Log4Shell Part 2 
+3. Folie: First Bug
 
-Verschiedene CVE's (1 Min 20)
-3. Folie: 
-4. Folie:
-5. Folie:
-6. Folie:
+Verschiedene CVE's (1 Min)
+3. Folie: STUXnet
+4. Folie: VTech DataBreach
+5. Folie: Asus
 
 
 Beispiele in der Schweiz (1 Min 20)
-7. Folie:
-8. Folie:
-9. Folie:
-10. Folie:
+7. Folie: easygov
+8. Folie: versch. Gemeinden
+9. Folie: Coop Gewinnspiel
+10. Folie: Phishing Jobangebot
 
 
-Grafiken und Tabellen (1 Min)
-11. Folie:
-12. Folie: 
-13. Folie:
+Grafiken und Tabellen (40 Sek)
+11. Folie: Tabelle 1
+12. Folie: Ländervergleich
 
+Massnahmen (1 Min 20 sek)
+13. Folie: Update
+14. Folie: Antivirus
+15. Folie: Passwort
+16. Folie: Mitarbeiter sensibilisieren 
 
-Massnahmen (1 Minute)
-14. Folie:
-15. Folie:
-16. Folie:  
+Animation  (1 Min 20 sek)
+17. Folie:  
+18. Folie:
+19. Folie:
+20. Folie:
 
-Animation  (2min)
-20. Folie:  
-21. Folie:
-22. Folie:
-23. Folie:
-24. Folie:
-25. Folie:
 
 ## Ideen
 * Log4Shell Zero-Day-Exploit
